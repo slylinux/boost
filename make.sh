@@ -1,0 +1,1 @@
+g++ -o blocking_tcp_echo_client blocking_tcp_echo_client.cpp -lboost_system -lboost_thread-mt -lboost_system-mt

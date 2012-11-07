@@ -1,0 +1,41 @@
+#include <algorithm>
+#include <cstdlib>
+#include <deque>
+#include <iostream>
+#include <list>
+#include <set>
+#include <boost/bind.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/enable_shared_from_this.hpp>
+#include <boost/asio.hpp>
+#include "chat_message.hpp"
+
+using boost::asio::ip::tcp;
+
+typedef std::deque<chat_message> chat_message_queue;
+
+class chat_participant
+{
+public:
+  virtual ~chat_participant(){}
+  virtual deliver(const chat_message& msg)=0;
+};
+
+typedef boost::shared_ptr<chat_participant> chat_participant_ptr;
+
+class chat_room
+{
+public:
+  void join(chat_participant_ptr participant)
+  {
+    participants_.insert(participant);
+    std::for_each(recent_msg_.begin(),
+		  recent_msg_.end(),
+		  boost::bind(&chat_participant::deliver,participant,_1));
+  }
+  void leave(chat_participant_ptr participant)
+  {
+    participant_.erase(participant);
+  }
+  void deliver(const )
+};
