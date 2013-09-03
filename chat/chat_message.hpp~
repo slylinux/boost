@@ -1,9 +1,0 @@
-#ifndef CHAT_MESSAGFE_HPP
-#define CHAT_MESSAGE
-
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-
-
-#endif
