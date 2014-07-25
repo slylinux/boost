@@ -50,6 +50,7 @@ serial_port_base::parity PARITY( serial_port_base::parity::none );
 // how many stop bits are used (default is one)
 serial_port_base::stop_bits STOP( serial_port_base::stop_bits::one );
 
+//test main
 int main()
 {
 	// create the I/O service that talks to the serial device
